@@ -1,0 +1,21 @@
+<div style="text-align: center;">
+  <h1>Dynamic List Drag & Drop Angular 8<br> By <a href="https://www.linkedin.com/in/m-turki17/" target="_blank">Mahmoud Turki</a></h1>
+</div>
+<div class="row">
+  <div class="col-md-12" style="text-align: center;">
+    <div *ngFor="let minilist of list"> 
+      <div #{{minilist.id}}="cdkDropList"
+        class="box-list" id="{{minilist.id}}"
+        cdkDropList
+        cdkDropListOrientation="vertical"
+        [cdkDropListData]="minilist.data"
+        [cdkDropListConnectedTo]="connectedTo"  
+        (cdkDropListDropped)="drop($event)"> 
+        <div class="drag-box" *ngFor="let customer of minilist.data" cdkDrag>
+          {{customer}} 
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
